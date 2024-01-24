@@ -70,6 +70,8 @@ fn read_mode() {
         Ok(()) => println!("The signature is valid."),
         Err(_) => println!("The signature is not valid."),
     }
+    file.read_to_string(&mut contents).expect("Unable to read data");
+    println!("{}", contents);
 }
 fn distributed_mode() {
     let (tx, rx): (Sender<f64>, Receiver<f64>) = channel();
